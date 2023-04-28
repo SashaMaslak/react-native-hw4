@@ -1,21 +1,34 @@
 import { Text, View, StyleSheet, Keyboard } from "react-native";
-import Btn from "../components/Btn";
+import { useDispatch } from "react-redux";
+import { changeAuth } from "../redux/auth/authSlice";
+import Btn from "./Btn";
 
-const LoginBlock = ({ title, text, clearInputs, credentials }) => {
+const LoginBlock = ({ nav, titleBtn, text, clearInputs, credentials }) => {
+	const dispatch = useDispatch();
 	const handlePressBtn = () => {
 		const values = Object.values(credentials);
-		console.log(values);
 		if (values.includes("")) {
 			return alert("To fill every field!");
 		}
-		console.log("click");
+
 		clearInputs();
 		Keyboard.dismiss();
+
+		console.log(credentials);
+		dispatch(changeAuth(true));
+		nav("Home");
 	};
+
+	const handlePressText = () => {
+		titleBtn === "Sign in" ? nav("Register") : nav("Login");
+	};
+
 	return (
 		<View>
-			<Btn title={title} handlePressBtn={handlePressBtn} />
-			<Text style={styles.link}>{text}</Text>
+			<Btn title={titleBtn} handlePressBtn={handlePressBtn} />
+			<Text style={styles.link} onPress={handlePressText}>
+				{text}
+			</Text>
 		</View>
 	);
 };
