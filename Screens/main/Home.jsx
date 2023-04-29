@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
-import { getStatusAuth } from "../../redux/auth/authOperations";
+import { getStatusAuth } from "../../redux/auth/authSelectors";
 
 const Home = ({ navigation }) => {
 	const isAuth = useSelector(getStatusAuth);

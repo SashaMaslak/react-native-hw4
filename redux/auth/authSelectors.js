@@ -1,1 +1,1 @@
-export const getAuth = (state) => state.filter;
+export const getStatusAuth = (state) => state.auth;

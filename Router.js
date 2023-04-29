@@ -6,12 +6,11 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { TouchableOpacity, StyleSheet } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
-import { getStatusAuth } from "./redux/auth/authOperations";
+import { getStatusAuth } from "./redux/auth/authSelectors";
 import { changeAuth } from "./redux/auth/authSlice";
 
 import RegistrationSrceen from "./Screens/auth/RegistrationSrceen";
 import LoginSrceen from "./Screens/auth/LoginScreen";
-import Home from "./Screens/main/Home";
 import CreatePostsScreen from "./Screens/main/CreatePostsScreen";
 import ProfileScreen from "./Screens/main/ProfileScreen";
 import PostsScreen from "./Screens/main/PostsScreen";
