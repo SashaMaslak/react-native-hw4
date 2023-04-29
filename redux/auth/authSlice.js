@@ -5,7 +5,7 @@ export const authSlice = createSlice({
 	initialState: false,
 	reducers: {
 		changeAuth(state, action) {
-			return (state = action);
+			return (state = action.payload);
 		},
 	},
 });

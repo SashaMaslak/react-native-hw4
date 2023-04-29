@@ -20,9 +20,9 @@ const AuthStack = createStackNavigator();
 const MainTab = createBottomTabNavigator();
 
 const Router = () => {
-	const { payload: isAuth } = useSelector(getStatusAuth);
+	const isAuth = useSelector(getStatusAuth);
 	const dispatch = useDispatch();
-
+	console.log(isAuth);
 	const handleLogout = () => {
 		dispatch(changeAuth(false));
 	};
@@ -58,7 +58,6 @@ const Router = () => {
 		>
 			<MainTab.Screen
 				name="Posts"
-				navigationKey={isAuth ? "user" : "guest"}
 				component={PostsScreen}
 				options={{
 					headerTitleAlign: "center",
@@ -95,7 +94,6 @@ const Router = () => {
 			<MainTab.Screen
 				name="CreatePosts"
 				component={CreatePostsScreen}
-				navigationKey={isAuth ? "user" : "guest"}
 				options={{
 					headerTitleAlign: "center",
 					tabBarIcon: ({ focused, size, color }) => {
@@ -144,7 +142,6 @@ const Router = () => {
 			<MainTab.Screen
 				name="Profile"
 				component={ProfileScreen}
-				navigationKey={isAuth ? "user" : "guest"}
 				options={{
 					headerTitleAlign: "center",
 					tabBarIcon: ({ focused, size, color }) => {
